@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Finance Hub monthly newsletter design proposal">
+  <title>Finance Hub | Monthly Brief</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #080808;
+      --paper: #ffffff;
+      --yellow: #f5df00;
+      --yellow-soft: #fff6a7;
+      --yellow-pale: #fffbea;
+      --muted: #626262;
+      --line: #dedbd0;
+      --green: #286d4d;
+      --font-body: "Segoe UI", "Helvetica Neue", sans-serif;
+      --font-display: "Abadi MT Condensed Light", "Abadi", "Arial Narrow", "Segoe UI Light", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #efeee8;
+      color: var(--ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .preview-note {
+      width: min(100%, 860px);
+      margin: 20px auto 10px;
+      padding: 0 20px;
+      color: #56544c;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .newsletter {
+      width: min(100% - 32px, 820px);
+      margin: 0 auto 40px;
+      background: var(--paper);
+      box-shadow: 0 16px 50px #25221824;
+      overflow: hidden;
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 52px;
+      padding: 12px 30px;
+      background: var(--ink);
+      color: var(--paper);
+      border-bottom: 4px solid var(--yellow);
+    }
+
+    .brand-lockup, .command-lockup {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+
+    .ab-logo { width: 28px; height: 28px; object-fit: contain; }
+    .command-logo { display: block; width: 138px; max-height: 36px; object-fit: contain; }
+
+    .brand-divider { height: 19px; border-left: 1px solid #777; }
+    .brand-name { color: #dedede; font-weight: 500; }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      min-height: 170px;
+      overflow: hidden;
+      background: var(--ink);
+      color: white;
+    }
+
+    .hero-copy {
+      z-index: 1;
+      align-self: center;
+      padding: 18px 0 20px 34px;
+    }
+
+    .edition {
+      margin: 0 0 13px;
+      color: var(--yellow);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 430px;
+      margin-bottom: 10px;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4.1vw, 36px);
+      font-weight: 500;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    h1 em {
+      display: block;
+      margin-top: 7px;
+      color: var(--yellow);
+      font-size: .76em;
+      font-style: normal;
+      line-height: 1.08;
+    }
+
+    .hero-summary {
+      max-width: 370px;
+      margin: 17px 0 0;
+      color: #dadada;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .hero-art {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .hero-art::before {
+      position: absolute;
+      inset: -30px -80px -30px 5px;
+      background: var(--yellow);
+      clip-path: polygon(36% 0, 100% 0, 100% 100%, 0 100%, 25% 62%, 0 28%);
+      content: "";
+    }
+
+    .report-window {
+      z-index: 1;
+      width: 78%;
+      min-height: 112px;
+      padding: 10px;
+      transform: rotate(2deg);
+      border: 5px solid #202020;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 10px 20px #0005;
+    }
+
+    .window-top { display: flex; gap: 4px; margin-bottom: 9px; }
+    .window-top i { width: 5px; height: 5px; border-radius: 50%; background: #aaa; }
+    .window-title { height: 9px; width: 56%; margin-bottom: 10px; background: #202020; }
+    .window-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-bottom: 8px; }
+    .window-kpis i { height: 20px; background: #f6e852; border-bottom: 2px solid #1a1a1a; }
+    .window-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 5px; height: 46px; }
+    .window-grid i { background: repeating-linear-gradient(to bottom, #f1f1ef 0 6px, #dcdcd8 7px 8px); }
+    .window-grid i:last-child { background: linear-gradient(135deg, #f5df00 0 35%, #242424 36% 39%, #f1f1ef 40%); }
+
+    .impact-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--yellow);
+      border-bottom: 1px solid #d4c200;
+    }
+
+    .impact-item { padding: 17px 20px 16px; text-align: center; }
+    .impact-item + .impact-item { border-left: 1px solid #10101054; }
+    .impact-label { display: block; margin-bottom: 6px; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .impact-value { display: block; font-family: var(--font-display); font-size: 25px; line-height: 1; }
+    .impact-detail { display: block; margin-top: 5px; color: #393600; font-size: 9px; }
+
+    .section { padding: 15px 34px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 9px;
+      color: #343434;
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 18px; height: 3px; background: var(--yellow); content: ""; }
+    .section h2 { margin-bottom: 8px; font-size: 18px; font-weight: 600; line-height: 1.2; }
+    .section-intro { max-width: 590px; margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+
+    .win {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 10px;
+      padding: 11px;
+      background: var(--yellow-pale);
+      border-left: 4px solid var(--yellow);
+    }
+    .win-copy { margin-bottom: 12px; color: #4c4c4c; font-size: 11px; line-height: 1.55; }
+    .collab-label { display: block; margin-bottom: 5px; color: #6e6200; font-size: 8px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+    .collaborators { margin: 0; font-size: 10px; font-weight: 700; line-height: 1.5; }
+    .win-dashboard { display: inline-block; margin-top: 11px; color: #514600; font-size: 10px; font-weight: 850; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    .win-result { padding: 11px; border: 1px solid #ded483; text-align: center; }
+    .kpi-label { display: block; color: #6e6200; font-size: 8px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .win-result strong { display: block; margin: 4px 0 2px; font-family: var(--font-display); font-size: 27px; font-weight: 600; line-height: 1; }
+    .kpi-caption { display: block; color: #555; font-size: 8px; line-height: 1.3; }
+    .kpi-breakdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-top: 9px; padding-top: 8px; border-top: 1px solid #ded483; }
+    .kpi-breakdown span { color: #555; font-size: 7px; line-height: 1.25; }
+    .kpi-breakdown b { display: block; margin-top: 3px; color: #111; font-size: 9px; }
+
+    .highlights { padding-top: 2px; }
+    .highlight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; margin-top: 15px; }
+    .highlight { padding: 10px 0 9px; border-top: 1px solid var(--line); }
+    .highlight-tag { display: inline-block; margin-bottom: 7px; color: #706300; font-size: 8px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .highlight h3 { margin-bottom: 6px; font-size: 13px; }
+    .highlight p { margin-bottom: 7px; color: #5c5c5c; font-size: 10px; line-height: 1.5; }
+    .team-line { color: #222 !important; font-weight: 700; }
+
+    .updates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #f4f3ee;
+    }
+    .update-col { padding: 12px 25px 11px 34px; }
+    .update-col + .update-col { border-left: 1px solid #d8d6cc; }
+    .update-heading { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 11px; font-weight: 850; text-transform: uppercase; }
+    .update-heading b { display: grid; width: 22px; height: 22px; place-items: center; background: var(--yellow); font-size: 11px; }
+    .update-col ul { margin: 0; padding-left: 16px; }
+    .update-col li { padding: 3px 0; color: #464646; font-size: 10px; line-height: 1.45; }
+    .update-col li::marker { color: #8c7c00; }
+
+    .adoption {
+      padding: 13px 34px 14px;
+      background: var(--ink);
+      color: white;
+    }
+    .adoption .eyebrow { justify-content: center; margin-bottom: 6px; color: var(--yellow); }
+    .adoption .eyebrow::before { background: var(--yellow); }
+    .adoption-period { margin: 0 0 12px; color: #d7d7d7; font-size: 9px; text-align: center; }
+    .adoption-headline { margin: 0 0 5px; font-size: 16px; font-weight: 500; text-align: center; }
+    .adoption-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 12px; color: #d7d7d7; font-size: 9px; }
+    .adoption-legend span { display: flex; align-items: center; gap: 6px; }
+    .legend-bar { width: 15px; height: 5px; background: var(--yellow); }
+    .legend-marker { width: 2px; height: 12px; background: white; }
+    .adoption-charts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .adoption-chart { min-width: 0; margin: 0; }
+    .adoption-chart figcaption { display: flex; justify-content: space-between; gap: 5px; margin-bottom: 8px; font-size: 11px; }
+    .adoption-chart figcaption strong { color: var(--yellow); font-weight: 600; }
+    .adoption-track { position: relative; height: 12px; background: #343434; }
+    .adoption-bar { position: absolute; inset: 2px auto 2px 0; width: var(--current); background: var(--yellow); }
+    .adoption-baseline { position: absolute; top: -3px; bottom: -3px; left: 71.4286%; width: 2px; background: white; }
+    .adoption-scale { display: flex; justify-content: space-between; margin-top: 5px; color: #bcbcbc; font-size: 8px; }
+    .adoption-total { margin: 7px 0 0; color: #cfcfcf; font-size: 10px; }
+    .adoption-total b { color: white; font-weight: 500; }
+    .adoption-note { margin: 12px 0 0; padding-top: 9px; border-top: 1px solid #444; color: #cfcfcf; font-size: 10px; line-height: 1.5; }
+
+    .next-up { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; padding: 13px 34px; border-bottom: 1px solid var(--line); }
+    .next-up h2 { margin-bottom: 5px; font-size: 17px; }
+    .next-up p { margin: 0; color: #5d5d5d; font-size: 10px; line-height: 1.5; }
+    .cta {
+      display: inline-block;
+      padding: 12px 15px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .footer { padding: 10px 34px 12px; text-align: center; }
+    .footer strong { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
+    .footer p { margin: 0; color: #686868; font-size: 9px; line-height: 1.5; }
+    .footer a { color: #4d4300; font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    .footer-brand { margin-top: 14px !important; color: #888 !important; font-size: 8px !important; letter-spacing: .09em; text-transform: uppercase; }
+
+    [contenteditable="true"] { outline: none; }
+    [contenteditable="true"]:focus { outline: 2px dashed #a18f00; outline-offset: 3px; background-color: #fffde8; color: #111; }
+    .hero [contenteditable="true"]:focus, .adoption [contenteditable="true"]:focus { color: #111; }
+
+    @media (max-width: 680px) {
+      .preview-note { margin-top: 14px; font-size: 9px; }
+      .newsletter { width: min(100% - 18px, 820px); margin-bottom: 20px; }
+      .masthead { min-height: 48px; padding: 10px 17px; }
+      .brand-lockup { gap: 6px; font-size: 9px; }
+      .ab-logo { width: 23px; height: 23px; }
+      .command-logo { width: 112px; max-height: 30px; }
+      .hero { grid-template-columns: 1fr; min-height: 0; }
+      .hero-copy { padding: 27px 22px 10px; }
+      h1 { font-size: 30px; }
+      .hero-art { min-height: 140px; justify-content: flex-end; padding: 0 17px 14px; }
+      .hero-art::before { inset: -19px -54px -35px 23%; clip-path: polygon(27% 0, 100% 0, 100% 100%, 0 100%, 22% 56%, 0 24%); }
+      .report-window { width: 59%; min-height: 112px; margin-right: 9px; }
+      .impact-item { padding: 13px 5px; }
+      .impact-label { min-height: 22px; font-size: 7px; letter-spacing: .07em; }
+      .impact-value { font-size: 21px; }
+      .impact-detail { font-size: 8px; }
+      .section { padding: 23px 20px; }
+      .section h2 { font-size: 17px; }
+      .win { grid-template-columns: 1fr; gap: 13px; padding: 15px; }
+      .win-result { text-align: left; }
+      .highlight-grid { grid-template-columns: 1fr; }
+      .updates { grid-template-columns: 1fr; }
+      .update-col { padding: 18px 20px; }
+      .update-col + .update-col { border-top: 1px solid #d8d6cc; border-left: 0; }
+      .adoption { padding: 20px 15px; }
+      .adoption-charts { grid-template-columns: 1fr; gap: 15px; }
+      .adoption-headline { font-size: 15px; }
+      .next-up { grid-template-columns: 1fr; padding: 20px; }
+      .cta { justify-self: start; }
+      .footer { padding: 16px 20px 19px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .preview-note { display: none; }
+      .newsletter { width: 100%; margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <p class="preview-note">Finance Hub newsletter concept · sample copy is editable</p>
+  <main class="newsletter" aria-label="Finance Hub monthly newsletter preview">
+    <header class="masthead">
+      <div class="brand-lockup" aria-label="AB InBev Finance Hub logo placement">
+        <img class="ab-logo" src="../ui-assets/ab-inbev-symbol-gold.png" alt="AB InBev symbol">
+        <span>AB InBev</span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-name">Finance Hub</span>
+      </div>
+      <div class="command-lockup" aria-label="Command Center logo placement">
+        <img class="command-logo" src="../ui-assets/command-center-logo-yellow-white-2line.png" alt="Command Center">
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="edition" contenteditable="true" spellcheck="false">Finance Hub · October 2026</p>
+        <h1 contenteditable="true" spellcheck="false">Better finance,<em>built together.</em></h1>
+        <p class="hero-summary" contenteditable="true" spellcheck="false">A month of shared progress across Finance. See the outcomes, meet the teams behind them, and find what is moving next.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="report-window">
+          <div class="window-top"><i></i><i></i><i></i></div>
+          <div class="window-title"></div>
+          <div class="window-kpis"><i></i><i></i><i></i></div>
+          <div class="window-grid"><i></i><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="eyebrow">Biggest win of the month</div>
+      <h2 contenteditable="true" spellcheck="false">Target tracking visibility on ATR</h2>
+      <div class="win">
+        <div>
+          <span class="collab-label">The impact</span>
+          <p class="win-copy" contenteditable="true" spellcheck="false">Zone leads and central teams can see target progress and gaps in one view, focusing follow-up on the drivers and actions that matter.</p>
+          <span class="collab-label">Teams involved</span>
+          <p class="collaborators" contenteditable="true" spellcheck="false">ATR leads · Finance Operations · Data &amp; Analytics · Finance Hub developers</p>
+          <a class="win-dashboard" href="#" contenteditable="true" spellcheck="false" title="Replace the placeholder with the dashboard URL before sending">View the dashboard ↗</a>
+        </div>
+        <div class="win-result">
+          <span class="kpi-label" contenteditable="true" spellcheck="false">Leading KPI · [metric]</span>
+          <strong contenteditable="true" spellcheck="false">[XX%]</strong>
+          <span class="kpi-caption" contenteditable="true" spellcheck="false">Overall result · [period or comparison]</span>
+          <div class="kpi-breakdown" aria-label="KPI by finance stream">
+            <span>ATR<b contenteditable="true" spellcheck="false">[X%]</b></span>
+            <span>OTC<b contenteditable="true" spellcheck="false">[X%]</b></span>
+            <span>IC<b contenteditable="true" spellcheck="false">[X%]</b></span>
+            <span>Others<b contenteditable="true" spellcheck="false">[X%]</b></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlights">
+      <div class="eyebrow">More progress across Finance</div>
+      <div class="highlight-grid">
+        <article class="highlight">
+          <span class="highlight-tag">Process improvement</span>
+          <h3 contenteditable="true" spellcheck="false">PerfectClose target view is live</h3>
+          <p contenteditable="true" spellcheck="false">Account reconciliation gaps are easier to spot and follow up.</p>
+          <p class="team-line" contenteditable="true" spellcheck="false">With: Reconciliation + PerfectClose teams</p>
+        </article>
+        <article class="highlight">
+          <span class="highlight-tag">Reporting</span>
+          <h3 contenteditable="true" spellcheck="false">Waterfall drill-down expanded</h3>
+          <p contenteditable="true" spellcheck="false">Teams can move from the ATR management view to GL account detail.</p>
+          <p class="team-line" contenteditable="true" spellcheck="false">With: Reporting + Zonal Finance leads</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="updates" aria-label="Finance Hub updates">
+      <div class="update-col">
+        <div class="update-heading"><b aria-hidden="true">↗</b> Now live</div>
+        <ul>
+          <li contenteditable="true" spellcheck="false">PIT PerfectClose target view</li>
+          <li contenteditable="true" spellcheck="false">Account reconciliation gap analysis</li>
+          <li contenteditable="true" spellcheck="false">GL account drill-down in Waterfall</li>
+        </ul>
+      </div>
+      <div class="update-col">
+        <div class="update-heading"><b aria-hidden="true">→</b> Coming next</div>
+        <ul>
+          <li contenteditable="true" spellcheck="false">Benchmarking against target thresholds</li>
+          <li contenteditable="true" spellcheck="false">Detailed views in FORT insights</li>
+          <li contenteditable="true" spellcheck="false">KPI glossary on PerfectClose</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="adoption">
+      <div class="eyebrow">Adoption momentum</div>
+      <h2 class="adoption-headline" contenteditable="true" spellcheck="false">Usage is growing faster than the audience.</h2>
+      <p class="adoption-period" contenteditable="true" spellcheck="false">Illustrative comparison · September vs August · growth figures and period to be verified</p>
+      <div class="adoption-legend">
+        <span><i class="legend-bar" aria-hidden="true"></i>Current month</span>
+        <span><i class="legend-marker" aria-hidden="true"></i>Prior month = 100</span>
+      </div>
+      <div class="adoption-charts">
+        <figure class="adoption-chart">
+          <figcaption><span>Active users</span><strong>+12%</strong></figcaption>
+          <div class="adoption-track" role="img" aria-label="Illustrative active user growth: prior month index 100, current month 112. Shared scale 0 to 140.">
+            <span class="adoption-bar" style="--current: 80%"></span><span class="adoption-baseline"></span>
+          </div>
+          <div class="adoption-scale" aria-hidden="true"><span>0</span><span>Index 140</span></div>
+          <p class="adoption-total"><b>1,154</b> users this month</p>
+        </figure>
+        <figure class="adoption-chart">
+          <figcaption><span>Report views</span><strong>+15%</strong></figcaption>
+          <div class="adoption-track" role="img" aria-label="Illustrative report view growth: prior month index 100, current month 115. Shared scale 0 to 140.">
+            <span class="adoption-bar" style="--current: 82.1429%"></span><span class="adoption-baseline"></span>
+          </div>
+          <div class="adoption-scale" aria-hidden="true"><span>0</span><span>Index 140</span></div>
+          <p class="adoption-total"><b>20K</b> report views this month</p>
+        </figure>
+        <figure class="adoption-chart">
+          <figcaption><span>Page views</span><strong>+29%</strong></figcaption>
+          <div class="adoption-track" role="img" aria-label="Illustrative page view growth: prior month index 100, current month 129. Shared scale 0 to 140.">
+            <span class="adoption-bar" style="--current: 92.1429%"></span><span class="adoption-baseline"></span>
+          </div>
+          <div class="adoption-scale" aria-hidden="true"><span>0</span><span>Index 140</span></div>
+          <p class="adoption-total"><b>60K</b> page views this month</p>
+        </figure>
+      </div>
+      <p class="adoption-note" contenteditable="true" spellcheck="false">Sample takeaway: page views lead growth (+29%), ahead of users (+12%). This suggests more browsing per user, not yet evidence of improved business outcomes.</p>
+    </section>
+
+    <section class="next-up">
+      <div>
+        <div class="eyebrow">Looking ahead</div>
+        <h2 contenteditable="true" spellcheck="false">The next step is already in motion.</h2>
+        <p contenteditable="true" spellcheck="false">Manual journal entry and OTC receivables onboarding are next for Finance Hub. Add an owner, timing, or action needed from readers.</p>
+      </div>
+      <a class="cta" href="#" contenteditable="true" spellcheck="false">Explore Finance Hub</a>
+    </section>
+
+    <footer class="footer">
+      <strong>We value your feedback</strong>
+      <p contenteditable="true" spellcheck="false">What should we improve or celebrate next? <a href="#">Share your feedback</a> · <a href="#">View the dashboard</a></p>
+      <p class="footer-brand">Better insights. Smarter decisions. Stronger impact.</p>
+    </footer>
+  </main>
+</body>
+</html>
