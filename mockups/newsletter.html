@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Finance Hub monthly newsletter design proposal">
-  <title>Finance Hub | Monthly Brief</title>
+  <title>Finance Hub Newsletter</title>
   <style>
     :root {
       color-scheme: light;
       --ink: #080808;
-      --paper: #ffffff;
-      --yellow: #f5df00;
-      --yellow-soft: #fff6a7;
-      --yellow-pale: #fffbea;
-      --muted: #626262;
-      --line: #dedbd0;
-      --green: #286d4d;
+      --paper: #fffefa;
+      --yellow: #d7b91b;
+      --yellow-soft: #f7edb5;
+      --yellow-pale: #fcfaf0;
+      --muted: #62666c;
+      --line: #e1e6ec;
+      --green: #28714f;
       --font-body: "Segoe UI", "Helvetica Neue", sans-serif;
       --font-display: "Abadi MT Condensed Light", "Abadi", "Arial Narrow", "Segoe UI Light", "Segoe UI", sans-serif;
     }
@@ -24,28 +24,30 @@
 
     body {
       margin: 0;
-      background: #efeee8;
+      background: #f1f3f6;
       color: var(--ink);
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
     }
 
     .preview-note {
-      width: min(100%, 860px);
-      margin: 20px auto 10px;
-      padding: 0 20px;
-      color: #56544c;
+      width: min(100% - 48px, 1180px);
+      margin: 22px auto 12px;
+      padding: 0 2px;
+      color: #6b6b6b;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .12em;
+      letter-spacing: .1em;
       text-transform: uppercase;
     }
 
     .newsletter {
-      width: min(100% - 32px, 820px);
-      margin: 0 auto 40px;
+      width: min(100% - 48px, 1180px);
+      margin: 0 auto 48px;
       background: var(--paper);
-      box-shadow: 0 16px 50px #25221824;
+      border: 1px solid #e4e8ee;
+      border-radius: 18px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .12);
       overflow: hidden;
     }
 
@@ -53,24 +55,41 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 52px;
-      padding: 12px 30px;
+      gap: 0;
+      min-height: 64px;
+      padding: 12px 34px 12px 18px;
       background: var(--ink);
       color: var(--paper);
-      border-bottom: 4px solid var(--yellow);
+      border-bottom: 3px solid var(--yellow);
     }
 
     .brand-lockup, .command-lockup {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 16px;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: .04em;
     }
 
-    .ab-logo { width: 28px; height: 28px; object-fit: contain; }
-    .command-logo { display: block; width: 138px; max-height: 36px; object-fit: contain; }
+    .logo-frame { position: relative; flex: 0 0 auto; overflow: visible; }
+    .ab-logo-frame { width: 85px; height: 28px; display: flex; align-items: center; justify-content: flex-start; gap: 3px; }
+    .finance-logo-frame { width: 130px; height: 28px; }
+    .command-logo-frame { width: 150px; height: 28px; }
+    .logo-frame img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      max-width: none;
+      object-fit: contain;
+      object-position: center;
+      transform: translate(-50%, -50%);
+    }
+    .ab-logo-symbol { position: static !important; width: 26px; height: 26px; transform: none !important; }
+    .ab-logo-wordmark { position: static !important; width: 55.2px; height: 13.2px; transform: none !important; }
+    .finance-logo { width: 151px; height: 43px; }
+    .command-logo { width: 151px; height: 27px; }
 
     .brand-divider { height: 19px; border-left: 1px solid #777; }
     .brand-name { color: #dedede; font-weight: 500; }
@@ -79,7 +98,7 @@
       position: relative;
       display: grid;
       grid-template-columns: 1.25fr .75fr;
-      min-height: 170px;
+      min-height: 258px;
       overflow: hidden;
       background: var(--ink);
       color: white;
@@ -88,13 +107,13 @@
     .hero-copy {
       z-index: 1;
       align-self: center;
-      padding: 18px 0 20px 34px;
+      padding: 34px 20px 36px 48px;
     }
 
     .edition {
-      margin: 0 0 13px;
+      margin: 0 0 18px;
       color: var(--yellow);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: .19em;
       text-transform: uppercase;
@@ -102,10 +121,10 @@
 
     h1, h2, h3, p { margin-top: 0; }
     h1 {
-      max-width: 430px;
-      margin-bottom: 10px;
+      max-width: 560px;
+      margin-bottom: 14px;
       font-family: var(--font-display);
-      font-size: clamp(28px, 4.1vw, 36px);
+      font-size: clamp(34px, 4.4vw, 50px);
       font-weight: 500;
       line-height: 1;
       text-transform: uppercase;
@@ -113,19 +132,31 @@
 
     h1 em {
       display: block;
-      margin-top: 7px;
+      margin-top: 9px;
       color: var(--yellow);
-      font-size: .76em;
+      font-size: .72em;
       font-style: normal;
       line-height: 1.08;
     }
 
+    .hero-tagline {
+      width: max-content;
+      max-width: 100%;
+      margin: 4px 0 0;
+      padding-bottom: 9px;
+      border-bottom: 3px solid var(--yellow);
+      color: white;
+      font-size: clamp(18px, 2.2vw, 22px);
+      font-style: italic;
+      line-height: 1.2;
+    }
+
     .hero-summary {
-      max-width: 370px;
-      margin: 17px 0 0;
+      max-width: 480px;
+      margin: 20px 0 0;
       color: #dadada;
-      font-size: 13px;
-      line-height: 1.55;
+      font-size: 15px;
+      line-height: 1.65;
     }
 
     .hero-art {
@@ -138,188 +169,391 @@
 
     .hero-art::before {
       position: absolute;
-      inset: -30px -80px -30px 5px;
-      background: var(--yellow);
+      inset: -34px -70px -34px 5px;
+      background: #dfc21a;
       clip-path: polygon(36% 0, 100% 0, 100% 100%, 0 100%, 25% 62%, 0 28%);
       content: "";
     }
 
     .report-window {
+      position: relative;
       z-index: 1;
-      width: 78%;
-      min-height: 112px;
-      padding: 10px;
+      width: 88%;
+      height: auto;
+      aspect-ratio: 760 / 470;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0;
       transform: rotate(2deg);
-      border: 5px solid #202020;
-      border-radius: 5px;
-      background: #fff;
-      box-shadow: 0 10px 20px #0005;
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      filter: drop-shadow(0 16px 20px rgba(0, 0, 0, .24));
     }
-
-    .window-top { display: flex; gap: 4px; margin-bottom: 9px; }
-    .window-top i { width: 5px; height: 5px; border-radius: 50%; background: #aaa; }
-    .window-title { height: 9px; width: 56%; margin-bottom: 10px; background: #202020; }
-    .window-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-bottom: 8px; }
-    .window-kpis i { height: 20px; background: #f6e852; border-bottom: 2px solid #1a1a1a; }
-    .window-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 5px; height: 46px; }
-    .window-grid i { background: repeating-linear-gradient(to bottom, #f1f1ef 0 6px, #dcdcd8 7px 8px); }
-    .window-grid i:last-child { background: linear-gradient(135deg, #f5df00 0 35%, #242424 36% 39%, #f1f1ef 40%); }
+    .report-window::before {
+      content: none;
+    }
+    .report-window::after {
+      content: none;
+    }
+    .report-window img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
 
     .impact-strip {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      background: var(--yellow);
-      border-bottom: 1px solid #d4c200;
+      background: #f4e7a0;
+      border-bottom: 1px solid #e8d77b;
     }
 
-    .impact-item { padding: 17px 20px 16px; text-align: center; }
-    .impact-item + .impact-item { border-left: 1px solid #10101054; }
-    .impact-label { display: block; margin-bottom: 6px; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .impact-value { display: block; font-family: var(--font-display); font-size: 25px; line-height: 1; }
-    .impact-detail { display: block; margin-top: 5px; color: #393600; font-size: 9px; }
+    .impact-item { padding: 20px 24px 19px; text-align: center; }
+    .impact-item + .impact-item { border-left: 1px solid #bcae6e66; }
+    .impact-label { display: block; margin-bottom: 8px; color: #5e5e5e; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .impact-value { display: block; color: var(--ink); font-family: var(--font-display); font-size: 30px; line-height: 1; }
+    .impact-detail { display: block; margin-top: 7px; color: #626262; font-size: 11px; }
 
-    .section { padding: 15px 34px; }
+    .section { padding: 30px 48px; }
     .eyebrow {
       display: flex;
       align-items: center;
       gap: 9px;
-      margin-bottom: 9px;
-      color: #343434;
-      font-size: 10px;
+      margin-bottom: 12px;
+      color: #5f6266;
+      font-size: 11px;
       font-weight: 850;
-      letter-spacing: .13em;
+      letter-spacing: .11em;
       text-transform: uppercase;
     }
-    .eyebrow::before { width: 18px; height: 3px; background: var(--yellow); content: ""; }
-    .section h2 { margin-bottom: 8px; font-size: 18px; font-weight: 600; line-height: 1.2; }
-    .section-intro { max-width: 590px; margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .eyebrow::before { width: 20px; height: 3px; border-radius: 2px; background: var(--yellow); content: ""; }
+    .section h2 { margin-bottom: 10px; color: var(--ink); font-size: 23px; font-weight: 650; line-height: 1.25; }
+    .section-intro { max-width: 700px; margin-bottom: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
 
     .win {
       display: grid;
       grid-template-columns: 1.35fr .65fr;
-      gap: 24px;
+      gap: 28px;
       align-items: center;
-      margin-top: 10px;
-      padding: 11px;
-      background: var(--yellow-pale);
+      margin-top: 16px;
+      padding: 22px;
+      border: 1px solid #e6e3d3;
       border-left: 4px solid var(--yellow);
+      border-radius: 16px;
+      background: linear-gradient(110deg, #fffdf6 0%, #fff 64%);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .07);
     }
-    .win-copy { margin-bottom: 12px; color: #4c4c4c; font-size: 11px; line-height: 1.55; }
-    .collab-label { display: block; margin-bottom: 5px; color: #6e6200; font-size: 8px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
-    .collaborators { margin: 0; font-size: 10px; font-weight: 700; line-height: 1.5; }
-    .win-dashboard { display: inline-block; margin-top: 11px; color: #514600; font-size: 10px; font-weight: 850; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-    .win-result { padding: 11px; border: 1px solid #ded483; text-align: center; }
-    .kpi-label { display: block; color: #6e6200; font-size: 8px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
-    .win-result strong { display: block; margin: 4px 0 2px; font-family: var(--font-display); font-size: 27px; font-weight: 600; line-height: 1; }
-    .kpi-caption { display: block; color: #555; font-size: 8px; line-height: 1.3; }
-    .kpi-breakdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-top: 9px; padding-top: 8px; border-top: 1px solid #ded483; }
-    .kpi-breakdown span { color: #555; font-size: 7px; line-height: 1.25; }
-    .kpi-breakdown b { display: block; margin-top: 3px; color: #111; font-size: 9px; }
+    .win-copy { margin-bottom: 18px; color: #5d6064; font-size: 14px; line-height: 1.65; }
+    .collab-label { display: block; margin-bottom: 7px; color: #77630d; font-size: 10px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .collaborators { margin: 0; color: var(--ink); font-size: 12px; font-weight: 700; line-height: 1.6; }
+    .win-result { position: relative; min-width: 0; padding: 0; border: 0; }
+    .win-dashboard-preview { width: 100%; height: auto; display: block; border: 1px solid #dce2e9; border-radius: 10px; background: white; box-shadow: 0 10px 22px rgba(0, 0, 0, .1); }
 
-    .highlights { padding-top: 2px; }
-    .highlight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; margin-top: 15px; }
-    .highlight { padding: 10px 0 9px; border-top: 1px solid var(--line); }
-    .highlight-tag { display: inline-block; margin-bottom: 7px; color: #706300; font-size: 8px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
-    .highlight h3 { margin-bottom: 6px; font-size: 13px; }
-    .highlight p { margin-bottom: 7px; color: #5c5c5c; font-size: 10px; line-height: 1.5; }
-    .team-line { color: #222 !important; font-weight: 700; }
+    .highlights { padding-top: 18px; padding-bottom: 30px; }
+    .highlight-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+    .highlight { min-width: 0; padding: 20px 22px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 8px 22px rgba(0, 0, 0, .05); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .highlight:hover { transform: translateY(-2px); border-color: #d3dbe5; box-shadow: 0 14px 28px rgba(0, 0, 0, .09); }
+    .highlight-tag { display: inline-block; margin-bottom: 10px; color: #806b12; font-size: 10px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .highlight h3 { margin-bottom: 8px; color: var(--ink); font-size: 16px; line-height: 1.35; }
+    .highlight p { margin-bottom: 10px; color: #5e6266; font-size: 13px; line-height: 1.55; }
+    .team-line { margin-bottom: 0 !important; color: #111 !important; font-weight: 700; }
 
     .updates {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      background: #f4f3ee;
+      gap: 18px;
+      padding: 26px 40px 28px;
+      border-bottom: 1px solid var(--line);
+      background: #f3f5f8;
     }
-    .update-col { padding: 12px 25px 11px 34px; }
-    .update-col + .update-col { border-left: 1px solid #d8d6cc; }
-    .update-heading { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 11px; font-weight: 850; text-transform: uppercase; }
-    .update-heading b { display: grid; width: 22px; height: 22px; place-items: center; background: var(--yellow); font-size: 11px; }
-    .update-col ul { margin: 0; padding-left: 16px; }
-    .update-col li { padding: 3px 0; color: #464646; font-size: 10px; line-height: 1.45; }
-    .update-col li::marker { color: #8c7c00; }
+    .updates-eyebrow { grid-column: 1 / -1; margin-bottom: 0; }
+    .update-col {
+      position: relative;
+      min-width: 0;
+      min-height: 180px;
+      padding: 22px 24px;
+      overflow: hidden;
+      border: 1px solid #dfe5ec;
+      border-top: 3px solid var(--yellow);
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .07);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .update-col:hover { transform: translateY(-3px); border-color: #cbd5e0; box-shadow: 0 16px 34px rgba(0, 0, 0, .11); }
+    .update-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; color: var(--ink); font-size: 14px; font-weight: 850; letter-spacing: .03em; text-transform: uppercase; }
+    .update-heading-label, .next-up-lead { position: relative; padding-bottom: 7px; }
+    .update-heading-label::after, .next-up-lead::after { position: absolute; left: 0; bottom: 0; width: 36px; height: 3px; border-radius: 2px; background: var(--yellow); content: ""; }
+    .update-heading-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #eee5be;
+      border-radius: 12px;
+      background: #fbf6df;
+      color: #806b12;
+      font-size: 16px;
+    }
+    .update-heading-icon svg,
+    .next-up-icon svg { width: 20px; height: 20px; }
+    .footer-icon svg { width: 18px; height: 18px; }
+    .update-col ul { margin: 0; padding: 0; list-style: none; }
+    .update-col li { position: relative; margin-bottom: 10px; padding-left: 17px; color: #5d6064; font-size: 13px; line-height: 1.5; }
+    .update-col li:last-child { margin-bottom: 0; }
+    .update-col li::before { position: absolute; left: 0; top: 8px; width: 7px; height: 7px; transform: rotate(45deg); border-radius: 2px; background: var(--yellow); content: ""; }
 
     .adoption {
-      padding: 13px 34px 14px;
-      background: var(--ink);
-      color: white;
-    }
-    .adoption .eyebrow { justify-content: center; margin-bottom: 6px; color: var(--yellow); }
-    .adoption .eyebrow::before { background: var(--yellow); }
-    .adoption-period { margin: 0 0 12px; color: #d7d7d7; font-size: 9px; text-align: center; }
-    .adoption-headline { margin: 0 0 5px; font-size: 16px; font-weight: 500; text-align: center; }
-    .adoption-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 12px; color: #d7d7d7; font-size: 9px; }
-    .adoption-legend span { display: flex; align-items: center; gap: 6px; }
-    .legend-bar { width: 15px; height: 5px; background: var(--yellow); }
-    .legend-marker { width: 2px; height: 12px; background: white; }
-    .adoption-charts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-    .adoption-chart { min-width: 0; margin: 0; }
-    .adoption-chart figcaption { display: flex; justify-content: space-between; gap: 5px; margin-bottom: 8px; font-size: 11px; }
-    .adoption-chart figcaption strong { color: var(--yellow); font-weight: 600; }
-    .adoption-track { position: relative; height: 12px; background: #343434; }
-    .adoption-bar { position: absolute; inset: 2px auto 2px 0; width: var(--current); background: var(--yellow); }
-    .adoption-baseline { position: absolute; top: -3px; bottom: -3px; left: 71.4286%; width: 2px; background: white; }
-    .adoption-scale { display: flex; justify-content: space-between; margin-top: 5px; color: #bcbcbc; font-size: 8px; }
-    .adoption-total { margin: 7px 0 0; color: #cfcfcf; font-size: 10px; }
-    .adoption-total b { color: white; font-weight: 500; }
-    .adoption-note { margin: 12px 0 0; padding-top: 9px; border-top: 1px solid #444; color: #cfcfcf; font-size: 10px; line-height: 1.5; }
-
-    .next-up { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; padding: 13px 34px; border-bottom: 1px solid var(--line); }
-    .next-up h2 { margin-bottom: 5px; font-size: 17px; }
-    .next-up p { margin: 0; color: #5d5d5d; font-size: 10px; line-height: 1.5; }
-    .cta {
-      display: inline-block;
-      padding: 12px 15px;
-      background: var(--yellow);
+      padding: 38px 40px 42px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #f5f6f8;
       color: var(--ink);
-      font-size: 9px;
+    }
+    .adoption-title { margin: 0 0 10px; color: var(--ink); font-size: 23px; font-weight: 650; letter-spacing: normal; line-height: 1.25; }
+    .adoption-headline { margin: 0 0 28px; color: #62666c; font-size: 15px; font-weight: 500; line-height: 1.5; }
+    .adoption-charts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: 18px; }
+    .adoption-chart {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 224px;
+      margin: 0;
+      padding: 22px 23px 18px;
+      overflow: hidden;
+      border: 1px solid #dfe5ec;
+      border-top: 3px solid var(--yellow);
+      border-radius: 17px;
+      background: linear-gradient(155deg, #fff 0%, #fff 66%, #fbfcfd 100%);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .025), 0 14px 30px rgba(0, 0, 0, .065);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .adoption-chart:hover { transform: translateY(-4px); border-color: #cbd6e2; box-shadow: 0 5px 12px rgba(0, 0, 0, .04), 0 20px 38px rgba(0, 0, 0, .11); }
+    .adoption-chart figcaption { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 26px; color: #111; font-size: 14px; font-weight: 700; }
+    .adoption-metric-name { min-width: 0; display: inline-flex; align-items: center; gap: 10px; }
+    .adoption-metric-icon { width: 34px; height: 34px; flex: 0 0 34px; display: grid; place-items: center; border: 1px solid #eee5be; border-radius: 10px; background: #fbf7e6; color: #806b12; }
+    .adoption-metric-icon svg { width: 18px; height: 18px; display: block; }
+    .adoption-trend { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 6px; padding: 6px 9px; border: 1px solid #d9eadf; border-radius: 999px; font-size: 11px; font-weight: 750; letter-spacing: .01em; }
+    .adoption-trend svg { width: 13px; height: 13px; display: block; }
+    .adoption-trend-positive { color: #216442; background: #edf6f0; }
+    .adoption-trend-negative { color: #a23832; background: #fae9e7; border-color: #f0d7d4; }
+    .adoption-trend-neutral { color: #62666c; background: #edf0f4; border-color: #dce2e9; }
+    .adoption-value-row { display: flex; align-items: baseline; gap: 9px; margin-bottom: 0; }
+    .adoption-value { color: var(--ink); font-family: var(--font-body); font-size: clamp(44px, 4vw, 52px); font-weight: 750; font-variant-numeric: tabular-nums; letter-spacing: -.055em; line-height: .98; }
+    .adoption-value-unit { color: #63676c; font-size: 13px; font-weight: 650; }
+    .adoption-total { margin: 7px 0 0; color: #74777c; font-size: 10px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+    .adoption-comparison { display: flex; align-items: center; gap: 8px; margin: auto 0 0; padding-top: 14px; border-top: 1px solid #e8ecf0; color: #61666b; font-size: 12px; }
+    .adoption-comparison::before { width: 6px; height: 6px; flex: 0 0 6px; border-radius: 50%; background: #cfb42a; content: ""; }
+
+    .next-up {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      align-items: start;
+      column-gap: 14px;
+      margin: 14px 40px;
+      padding: 17px 20px;
+      border: 1px solid #e1e6ec;
+      border-left: 3px solid var(--yellow);
+      border-radius: 12px;
+      background: #fff;
+      transition: border-color .2s ease;
+    }
+    .next-up:hover { border-color: #d3dce6; }
+    .next-up-icon { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid #e9dfad; border-radius: 10px; background: #fbf6df; color: #78650e; }
+    .next-up-title { margin: 0 0 6px; color: #806b12; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .next-up-lead { width: max-content; max-width: 100%; margin: 0 0 7px; color: var(--ink); font-size: 14px; font-weight: 850; letter-spacing: .03em; line-height: 1.35; text-transform: uppercase; }
+    .next-up p:not(.next-up-lead) { margin: 0; color: #61666b; font-size: 13px; line-height: 1.55; }
+    .next-up-feedback {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      grid-column: 2;
+      margin-top: 10px;
+    }
+    .action-button {
+      max-width: 100%;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px 6px 7px;
+      color: #080808;
+      background: transparent;
+      font-size: 10px;
       font-weight: 900;
-      letter-spacing: .1em;
-      text-align: center;
+      letter-spacing: .07em;
       text-decoration: none;
+      text-transform: uppercase;
+    }
+    .action-button-icon { width: 28px; height: 28px; flex: 0 0 28px; display: grid; place-items: center; border-radius: 7px; background: rgba(255,255,255,.82); }
+    .action-button-icon svg { width: 17px; height: 17px; display: block; }
+    .action-button-label { line-height: 1.25; }
+    .win-dashboard { margin: 0; }
+    .win > div:first-child > .button-action-group { margin: 8px 0 12px; }
+    .button-action-group { width: fit-content; max-width: 100%; }
+    .action-button-shell { position: relative; z-index: 1; display: inline-flex; align-items: stretch; max-width: 100%; border: 1px solid #c9ab12; border-radius: 11px; background: linear-gradient(180deg, #f5df76 0%, #e4c63c 100%); box-shadow: 0 7px 16px rgba(91,75,0,.14); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+    .action-button-shell:hover { z-index: 2; transform: translateY(-2px); border-color: #a58d10; box-shadow: 0 11px 22px rgba(91,75,0,.2); }
+    .action-button { height: 44px; padding-right: 43px; border: 0; border-radius: 10px; background: transparent; box-shadow: none; transition: none; }
+    .action-button:hover { transform: none; border-color: transparent; box-shadow: none; }
+    .action-button:focus-visible { position: relative; z-index: 1; outline: 3px solid var(--ink); outline-offset: 3px; }
+    .button-link-editor { position: absolute; top: 50%; right: 6px; z-index: 2; display: flex; align-items: center; margin: 0; color: #5d6268; font-size: 11px; opacity: 0; transform: translateY(-50%); transition: opacity .16s ease; }
+    .action-button-shell:hover .button-link-editor, .action-button-shell:focus-within .button-link-editor, .button-link-editor[open] { z-index: 4; opacity: 1; }
+    .button-link-editor summary { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 7px; color: #29250f; background: rgba(255,255,255,.55); cursor: pointer; list-style: none; }
+    .button-link-editor summary::-webkit-details-marker { display: none; }
+    .button-link-editor summary:hover { background: rgba(255,255,255,.35); }
+    .button-link-editor summary:focus-visible { outline: 2px solid #080808; outline-offset: 1px; }
+    .button-link-editor summary svg { width: 16px; height: 16px; display: block; }
+    .button-link-editor .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .button-link-editor-form { position: absolute; top: calc(100% + 9px); left: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 8px; width: min(420px, calc(100vw - 56px)); margin: 0; padding: 12px; border: 1px solid #e1e6ec; border-radius: 10px; background: #fff; box-shadow: 0 8px 20px rgba(0, 0, 0, .12); }
+    .image-editor { position: absolute; right: 10px; bottom: 10px; z-index: 2; margin: 0; color: #5d6268; font-size: 11px; opacity: 0; transition: opacity .16s ease; }
+    .win-result:hover .image-editor, .win-result:focus-within .image-editor, .image-editor[open] { opacity: 1; }
+    .image-editor summary { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid #dfe5ec; border-radius: 9px; color: #30343a; background: rgba(255,255,255,.94); box-shadow: 0 3px 10px rgba(0,0,0,.12); cursor: pointer; list-style: none; }
+    .image-editor summary::-webkit-details-marker { display: none; }
+    .image-editor summary:hover { border-color: #cbd5e0; background: #fbfcfd; }
+    .image-editor summary:focus-visible { outline: 2px solid #080808; outline-offset: 2px; }
+    .image-editor summary svg { width: 15px; height: 15px; }
+    .image-editor-panel { position: absolute; right: 0; bottom: calc(100% + 8px); display: grid; gap: 7px; width: min(360px, calc(100vw - 56px)); margin: 0; padding: 11px; border: 1px solid #e1e6ec; border-radius: 9px; background: #fff; box-shadow: 0 8px 20px rgba(0, 0, 0, .12); }
+    .image-editor-panel label { display: grid; gap: 6px; color: #30343a; font-size: 11px; font-weight: 700; }
+    .image-editor-panel input { max-width: 100%; font: 11px var(--font-body); }
+    .image-editor-status { margin: 0; color: #5d6268; font-size: 11px; line-height: 1.4; }
+    .image-editor-status:empty { display: none; }
+    @media (hover: none) { .button-link-editor, .image-editor { opacity: .8; } }
+    .button-link-editor-field { min-width: 0; display: grid; gap: 5px; font-size: 10px; font-weight: 750; }
+    .button-link-editor-input { width: 100%; min-width: 0; padding: 8px 9px; border: 1px solid #cfd5dc; border-radius: 7px; color: #080808; background: #fff; font: 12px var(--font-body); }
+    .button-link-editor-input[aria-invalid="true"] { border-color: #b43d35; }
+    .button-link-editor-input:focus-visible, .button-link-editor-save:focus-visible { outline: 2px solid #080808; outline-offset: 2px; }
+    .button-link-editor-save { min-height: 34px; padding: 0 12px; border: 1px solid #c9ab12; border-radius: 7px; color: #080808; background: #f2dc68; font: 750 10px var(--font-body); cursor: pointer; }
+    .button-link-editor-status { grid-column: 1 / -1; margin: 0; color: #5d6268; font-size: 11px; line-height: 1.4; }
+    .button-link-editor-status:empty { display: none; }
+
+    .footer {
+      min-height: 150px;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      align-items: center;
+      margin: 24px 0 0;
+      padding: 18px 44px 18px 28px;
+      border-top: 1px solid #d5bd35;
+      border-bottom: 1px solid #d5bd35;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, .88) 0%, rgba(255, 255, 255, .88) 18%, transparent 18%, transparent 100%),
+        var(--yellow);
+    }
+    .footer:hover { transform: none; }
+    .footer-icon {
+      width: 138px;
+      height: 88px;
+      display: grid;
+      place-items: center;
+      filter: drop-shadow(4px 5px 0 rgba(39, 33, 0, .12));
+    }
+    .footer-icon svg { width: 130px; height: 86px; }
+    .footer-content {
+      display: block;
+      min-width: 0;
+      text-align: center;
+    }
+    .footer strong {
+      display: block;
+      width: 100%;
+      margin: 0 0 7px;
+      padding: 0;
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: .01em;
+      line-height: 1;
       text-transform: uppercase;
       white-space: nowrap;
     }
-
-    .footer { padding: 10px 34px 12px; text-align: center; }
-    .footer strong { display: block; margin-bottom: 5px; font-size: 10px; text-transform: uppercase; }
-    .footer p { margin: 0; color: #686868; font-size: 9px; line-height: 1.5; }
-    .footer a { color: #4d4300; font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-    .footer-brand { margin-top: 14px !important; color: #888 !important; font-size: 8px !important; letter-spacing: .09em; text-transform: uppercase; }
+    .footer strong::after { content: none; }
+    .footer p {
+      margin: 0;
+      color: #111;
+      font-size: 18px;
+      line-height: 1.2;
+    }
 
     [contenteditable="true"] { outline: none; }
     [contenteditable="true"]:focus { outline: 2px dashed #a18f00; outline-offset: 3px; background-color: #fffde8; color: #111; }
-    .hero [contenteditable="true"]:focus, .adoption [contenteditable="true"]:focus { color: #111; }
+    .hero [contenteditable="true"]:focus { color: #111; }
+
+    @media (min-width: 681px) and (max-width: 900px) {
+      .adoption-charts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .adoption-chart:last-child { grid-column: 1 / -1; width: calc((100% - 16px) / 2); justify-self: center; }
+    }
 
     @media (max-width: 680px) {
       .preview-note { margin-top: 14px; font-size: 9px; }
       .newsletter { width: min(100% - 18px, 820px); margin-bottom: 20px; }
-      .masthead { min-height: 48px; padding: 10px 17px; }
-      .brand-lockup { gap: 6px; font-size: 9px; }
-      .ab-logo { width: 23px; height: 23px; }
-      .command-logo { width: 112px; max-height: 30px; }
+      .masthead { min-height: 48px; gap: 0; padding: 10px 17px 10px 10px; }
+      .brand-lockup, .command-lockup { gap: 7px; font-size: 9px; }
+      .ab-logo-frame { width: 58px; height: 19px; gap: 2px; }
+      .finance-logo-frame { width: 87px; height: 19px; }
+      .command-logo-frame { width: 100px; height: 19px; }
+      .ab-logo-symbol { width: 18px; height: 18px; }
+      .ab-logo-wordmark { width: 37.2px; height: 9px; }
+      .finance-logo { width: 101px; height: 29px; }
+      .command-logo { width: 101px; height: 18px; }
       .hero { grid-template-columns: 1fr; min-height: 0; }
       .hero-copy { padding: 27px 22px 10px; }
       h1 { font-size: 30px; }
       .hero-art { min-height: 140px; justify-content: flex-end; padding: 0 17px 14px; }
       .hero-art::before { inset: -19px -54px -35px 23%; clip-path: polygon(27% 0, 100% 0, 100% 100%, 0 100%, 22% 56%, 0 24%); }
-      .report-window { width: 59%; min-height: 112px; margin-right: 9px; }
+      .report-window { width: 78%; aspect-ratio: 678 / 322; margin-right: 9px; border-width: 4px; padding: 3px; }
       .impact-item { padding: 13px 5px; }
-      .impact-label { min-height: 22px; font-size: 7px; letter-spacing: .07em; }
+      .impact-label { min-height: 22px; font-size: 9px; letter-spacing: .04em; }
       .impact-value { font-size: 21px; }
-      .impact-detail { font-size: 8px; }
-      .section { padding: 23px 20px; }
-      .section h2 { font-size: 17px; }
+      .impact-detail { font-size: 10px; }
+      .section { padding: 28px 22px; }
+      .section h2 { font-size: 20px; }
       .win { grid-template-columns: 1fr; gap: 13px; padding: 15px; }
       .win-result { text-align: left; }
       .highlight-grid { grid-template-columns: 1fr; }
       .updates { grid-template-columns: 1fr; }
       .update-col { padding: 18px 20px; }
-      .update-col + .update-col { border-top: 1px solid #d8d6cc; border-left: 0; }
+      .update-col + .update-col { border-top: 3px solid var(--yellow); border-left: 1px solid #dfe5ec; }
       .adoption { padding: 20px 15px; }
       .adoption-charts { grid-template-columns: 1fr; gap: 15px; }
-      .adoption-headline { font-size: 15px; }
-      .next-up { grid-template-columns: 1fr; padding: 20px; }
-      .cta { justify-self: start; }
-      .footer { padding: 16px 20px 19px; }
+      .adoption-chart:last-child { grid-column: auto; width: auto; }
+      .adoption-chart { min-height: 212px; padding: 18px 17px 16px; }
+      .adoption-chart figcaption { margin-bottom: 22px; }
+      .updates { margin: 0; padding: 12px 20px; }
+      .next-up { margin: 12px 20px; }
+      .footer {
+        min-height: 132px;
+        margin: 12px 0 0;
+        grid-template-columns: 92px 1fr;
+        padding: 14px 14px 14px 10px;
+      }
+      .footer-icon { width: 88px; height: 84px; }
+      .footer-icon svg { width: 84px; height: 78px; }
+      .footer strong { font-size: 16px; line-height: 1.12; white-space: normal; }
+      .footer p { font-size: 14px; }
+    }
+
+    @media (max-width: 360px) {
+      .masthead { padding: 10px 6px 10px 4px; }
+      .brand-lockup, .command-lockup { gap: 4px; }
+      .ab-logo-frame { width: 45px; height: 16px; gap: 2px; }
+      .finance-logo-frame { width: 77px; height: 16px; }
+      .command-logo-frame { width: 88px; height: 16px; }
+      .ab-logo-symbol { width: 14px; height: 14px; }
+      .ab-logo-wordmark { width: 29.4px; height: 7.2px; }
+      .finance-logo { width: 90px; height: 26px; }
+      .command-logo { width: 89px; height: 16px; }
+      .brand-divider { height: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
     }
 
     @media print {
@@ -330,32 +564,36 @@
   </style>
 </head>
 <body>
-  <p class="preview-note">Finance Hub newsletter concept · sample copy is editable</p>
+  <p class="preview-note">Finance Hub Newsletter</p>
   <main class="newsletter" aria-label="Finance Hub monthly newsletter preview">
     <header class="masthead">
       <div class="brand-lockup" aria-label="AB InBev Finance Hub logo placement">
-        <img class="ab-logo" src="../ui-assets/ab-inbev-symbol-gold.png" alt="AB InBev symbol">
-        <span>AB InBev</span>
+        <span class="logo-frame ab-logo-frame">
+          <img class="ab-logo-symbol" src="../ui-assets/ab-inbev-symbol-header.png" alt="AB InBev">
+          <img class="ab-logo-wordmark" src="../ui-assets/ab-inbev-wordmark-header.png" alt="">
+        </span>
         <span class="brand-divider" aria-hidden="true"></span>
-        <span class="brand-name">Finance Hub</span>
+        <span class="logo-frame finance-logo-frame">
+          <img class="finance-logo" src="../ui-assets/finance-hub-new.png" alt="Finance Hub">
+        </span>
       </div>
       <div class="command-lockup" aria-label="Command Center logo placement">
-        <img class="command-logo" src="../ui-assets/command-center-logo-yellow-white-2line.png" alt="Command Center">
+        <span class="logo-frame command-logo-frame">
+          <img class="command-logo" src="../ui-assets/command-center-new-logo.png" alt="Command Center">
+        </span>
       </div>
     </header>
 
     <section class="hero">
       <div class="hero-copy">
         <p class="edition" contenteditable="true" spellcheck="false">Finance Hub · October 2026</p>
-        <h1 contenteditable="true" spellcheck="false">Better finance,<em>built together.</em></h1>
+        <h1 contenteditable="true" spellcheck="false">SIMPLIFY FINANCE,<em>DRIVE IMPACT.</em></h1>
+        <p class="hero-tagline">One Hub. Every Solution.</p>
         <p class="hero-summary" contenteditable="true" spellcheck="false">A month of shared progress across Finance. See the outcomes, meet the teams behind them, and find what is moving next.</p>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="report-window">
-          <div class="window-top"><i></i><i></i><i></i></div>
-          <div class="window-title"></div>
-          <div class="window-kpis"><i></i><i></i><i></i></div>
-          <div class="window-grid"><i></i><i></i></div>
+          <img src="../ui-assets/finance-laptop-powerbi-v2.png" alt="">
         </div>
       </div>
     </section>
@@ -369,43 +607,63 @@
           <p class="win-copy" contenteditable="true" spellcheck="false">Zone leads and central teams can see target progress and gaps in one view, focusing follow-up on the drivers and actions that matter.</p>
           <span class="collab-label">Teams involved</span>
           <p class="collaborators" contenteditable="true" spellcheck="false">ATR leads · Finance Operations · Data &amp; Analytics · Finance Hub developers</p>
-          <a class="win-dashboard" href="#" contenteditable="true" spellcheck="false" title="Replace the placeholder with the dashboard URL before sending">View the dashboard ↗</a>
-        </div>
-        <div class="win-result">
-          <span class="kpi-label" contenteditable="true" spellcheck="false">Leading KPI · [metric]</span>
-          <strong contenteditable="true" spellcheck="false">[XX%]</strong>
-          <span class="kpi-caption" contenteditable="true" spellcheck="false">Overall result · [period or comparison]</span>
-          <div class="kpi-breakdown" aria-label="KPI by finance stream">
-            <span>ATR<b contenteditable="true" spellcheck="false">[X%]</b></span>
-            <span>OTC<b contenteditable="true" spellcheck="false">[X%]</b></span>
-            <span>IC<b contenteditable="true" spellcheck="false">[X%]</b></span>
-            <span>Others<b contenteditable="true" spellcheck="false">[X%]</b></span>
+          <div class="button-action-group">
+            <div class="action-button-shell">
+              <a class="action-button win-dashboard" href="#" title="Dashboard link not set yet">
+                <span class="action-button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="16" rx="2" stroke="#090909" stroke-width="1.5"/>
+                    <path d="M3 9h18M8 9v11M12 14v3m3-5v5m3-7v7" stroke="#090909" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="action-button-label" contenteditable="true" spellcheck="false">CLICK HERE TO VIEW THE DASHBOARD</span>
+              </a>
+              <details class="button-link-editor">
+                <summary aria-label="Edit dashboard button destination" title="Edit dashboard link">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 6.5 17.5 10.5M4 20l4.2-.9L19 8.3a2.1 2.1 0 0 0-3-3L5.2 16.1 4 20Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="visually-hidden">Edit dashboard link</span>
+                </summary>
+                <form class="button-link-editor-form" data-link-editor novalidate>
+                  <label class="button-link-editor-field" for="dashboard-button-url">Dashboard destination URL
+                    <input class="button-link-editor-input" id="dashboard-button-url" name="destination" type="url" placeholder="https://..." required>
+                  </label>
+                  <button class="button-link-editor-save" type="submit">Save link</button>
+                  <p class="button-link-editor-status" aria-live="polite"></p>
+                </form>
+              </details>
+            </div>
           </div>
         </div>
+        <div class="win-result">
+          <img class="win-dashboard-preview" src="../ui-assets/control-atr-dashboard.png" alt="Finance Hub Control &amp; ATR dashboard overview with regional views and performance metrics">
+          <details class="image-editor">
+            <summary aria-label="Change dashboard image" title="Change image">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="10" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="m5 17 5-4 3 2 3-3 3.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="visually-hidden">Change dashboard image</span>
+            </summary>
+            <div class="image-editor-panel">
+              <label for="dashboard-image-file">Choose an image
+                <input id="dashboard-image-file" type="file" accept="image/*">
+              </label>
+              <p class="image-editor-status" aria-live="polite"></p>
+            </div>
+          </details>
+        </div>
       </div>
     </section>
 
-    <section class="section highlights">
-      <div class="eyebrow">More progress across Finance</div>
-      <div class="highlight-grid">
-        <article class="highlight">
-          <span class="highlight-tag">Process improvement</span>
-          <h3 contenteditable="true" spellcheck="false">PerfectClose target view is live</h3>
-          <p contenteditable="true" spellcheck="false">Account reconciliation gaps are easier to spot and follow up.</p>
-          <p class="team-line" contenteditable="true" spellcheck="false">With: Reconciliation + PerfectClose teams</p>
-        </article>
-        <article class="highlight">
-          <span class="highlight-tag">Reporting</span>
-          <h3 contenteditable="true" spellcheck="false">Waterfall drill-down expanded</h3>
-          <p contenteditable="true" spellcheck="false">Teams can move from the ATR management view to GL account detail.</p>
-          <p class="team-line" contenteditable="true" spellcheck="false">With: Reporting + Zonal Finance leads</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="updates" aria-label="Finance Hub updates">
+    <section class="updates" aria-label="More progress across Finance">
+      <div class="eyebrow updates-eyebrow" contenteditable="true" spellcheck="false">More progress across Finance</div>
       <div class="update-col">
-        <div class="update-heading"><b aria-hidden="true">↗</b> Now live</div>
+        <div class="update-heading">
+          <span class="update-heading-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M14.2 6.1c2.1-2.1 4.4-2.7 5.7-2.7-.1 1.3-.6 3.6-2.7 5.7l-4.3 4.3-3-3 4.3-4.3Z" stroke="#090909" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="m9.9 10.4-4 .5-1.9 1.9 4.7.8M13.6 14.1l-.5 4-1.9 1.9-.8-4.7M7.7 16.3l-2 2M5.3 14l-1.8 1.8M10 19.3l-1.8 1.8" stroke="#090909" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="update-heading-label" contenteditable="true" spellcheck="false">Now live</span>
+        </div>
         <ul>
           <li contenteditable="true" spellcheck="false">PIT PerfectClose target view</li>
           <li contenteditable="true" spellcheck="false">Account reconciliation gap analysis</li>
@@ -413,7 +671,16 @@
         </ul>
       </div>
       <div class="update-col">
-        <div class="update-heading"><b aria-hidden="true">→</b> Coming next</div>
+        <div class="update-heading">
+          <span class="update-heading-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5" width="18" height="16" rx="2.5" stroke="#090909" stroke-width="1.5"/>
+              <path d="M7 3v4M17 3v4M3 9h18" stroke="#090909" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 13h3M14 13h3M7 17h3M14 17h3" stroke="#090909" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="update-heading-label" contenteditable="true" spellcheck="false">Upcoming</span>
+        </div>
         <ul>
           <li contenteditable="true" spellcheck="false">Benchmarking against target thresholds</li>
           <li contenteditable="true" spellcheck="false">Detailed views in FORT insights</li>
@@ -422,57 +689,194 @@
       </div>
     </section>
 
-    <section class="adoption">
-      <div class="eyebrow">Adoption momentum</div>
-      <h2 class="adoption-headline" contenteditable="true" spellcheck="false">Usage is growing faster than the audience.</h2>
-      <p class="adoption-period" contenteditable="true" spellcheck="false">Illustrative comparison · September vs August · growth figures and period to be verified</p>
-      <div class="adoption-legend">
-        <span><i class="legend-bar" aria-hidden="true"></i>Current month</span>
-        <span><i class="legend-marker" aria-hidden="true"></i>Prior month = 100</span>
-      </div>
+    <section class="adoption" aria-labelledby="adoption-title">
+      <div class="eyebrow">Monthly performance</div>
+      <h2 class="adoption-title" id="adoption-title">Adoption Metrics</h2>
       <div class="adoption-charts">
         <figure class="adoption-chart">
-          <figcaption><span>Active users</span><strong>+12%</strong></figcaption>
-          <div class="adoption-track" role="img" aria-label="Illustrative active user growth: prior month index 100, current month 112. Shared scale 0 to 140.">
-            <span class="adoption-bar" style="--current: 80%"></span><span class="adoption-baseline"></span>
-          </div>
-          <div class="adoption-scale" aria-hidden="true"><span>0</span><span>Index 140</span></div>
-          <p class="adoption-total"><b>1,154</b> users this month</p>
+          <figcaption><span class="adoption-metric-name"><span class="adoption-metric-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 19v-1.5A4.5 4.5 0 0 1 8 13h2a4.5 4.5 0 0 1 4.5 4.5V19M15.5 5.3a3 3 0 0 1 0 5.4M17 13.2a4 4 0 0 1 3.5 4V19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span contenteditable="true" spellcheck="false">Active users</span></span><span class="adoption-trend adoption-trend-positive"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m2.5 11 4-4 3 3 4-5m0 0h-4m4 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span contenteditable="true" spellcheck="false">+12%</span></span></figcaption>
+          <div class="adoption-value-row"><strong class="adoption-value" contenteditable="true" spellcheck="false">1,154</strong><span class="adoption-value-unit">users</span></div>
+          <p class="adoption-total">this month</p>
+          <p class="adoption-comparison">Compared with GO Live</p>
         </figure>
         <figure class="adoption-chart">
-          <figcaption><span>Report views</span><strong>+15%</strong></figcaption>
-          <div class="adoption-track" role="img" aria-label="Illustrative report view growth: prior month index 100, current month 115. Shared scale 0 to 140.">
-            <span class="adoption-bar" style="--current: 82.1429%"></span><span class="adoption-baseline"></span>
-          </div>
-          <div class="adoption-scale" aria-hidden="true"><span>0</span><span>Index 140</span></div>
-          <p class="adoption-total"><b>20K</b> report views this month</p>
+          <figcaption><span class="adoption-metric-name"><span class="adoption-metric-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3.5" width="16" height="17" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 16v-3m4 3V8m4 8v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span contenteditable="true" spellcheck="false">Report views</span></span><span class="adoption-trend adoption-trend-positive"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m2.5 11 4-4 3 3 4-5m0 0h-4m4 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span contenteditable="true" spellcheck="false">+15%</span></span></figcaption>
+          <div class="adoption-value-row"><strong class="adoption-value" contenteditable="true" spellcheck="false">20K</strong><span class="adoption-value-unit">views</span></div>
+          <p class="adoption-total">this month</p>
+          <p class="adoption-comparison">Compared with GO Live</p>
         </figure>
         <figure class="adoption-chart">
-          <figcaption><span>Page views</span><strong>+29%</strong></figcaption>
-          <div class="adoption-track" role="img" aria-label="Illustrative page view growth: prior month index 100, current month 129. Shared scale 0 to 140.">
-            <span class="adoption-bar" style="--current: 92.1429%"></span><span class="adoption-baseline"></span>
-          </div>
-          <div class="adoption-scale" aria-hidden="true"><span>0</span><span>Index 140</span></div>
-          <p class="adoption-total"><b>60K</b> page views this month</p>
+          <figcaption><span class="adoption-metric-name"><span class="adoption-metric-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4.5" width="17" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M8 9v10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="6.2" cy="6.8" r=".7" fill="currentColor"/><circle cx="8.7" cy="6.8" r=".7" fill="currentColor"/></svg></span><span contenteditable="true" spellcheck="false">Page views</span></span><span class="adoption-trend adoption-trend-positive"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m2.5 11 4-4 3 3 4-5m0 0h-4m4 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span contenteditable="true" spellcheck="false">+29%</span></span></figcaption>
+          <div class="adoption-value-row"><strong class="adoption-value" contenteditable="true" spellcheck="false">60K</strong><span class="adoption-value-unit">views</span></div>
+          <p class="adoption-total">this month</p>
+          <p class="adoption-comparison">Compared with GO Live</p>
         </figure>
       </div>
-      <p class="adoption-note" contenteditable="true" spellcheck="false">Sample takeaway: page views lead growth (+29%), ahead of users (+12%). This suggests more browsing per user, not yet evidence of improved business outcomes.</p>
     </section>
 
-    <section class="next-up">
+    <section class="next-up" aria-labelledby="looking-ahead-heading">
+      <div class="next-up-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="13" r="7.5" stroke="#090909" stroke-width="1.5"/>
+          <path d="M12 13V9.5M12 13l3.2 1.9M12 5.5V3M9.5 3h5" stroke="#090909" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div>
-        <div class="eyebrow">Looking ahead</div>
-        <h2 contenteditable="true" spellcheck="false">The next step is already in motion.</h2>
+        <h2 class="next-up-title" id="looking-ahead-heading">Looking Ahead</h2>
+        <p class="next-up-lead" contenteditable="true" spellcheck="false">The next step is already in motion.</p>
         <p contenteditable="true" spellcheck="false">Manual journal entry and OTC receivables onboarding are next for Finance Hub. Add an owner, timing, or action needed from readers.</p>
       </div>
-      <a class="cta" href="#" contenteditable="true" spellcheck="false">Explore Finance Hub</a>
+    </section>
+
+    <section class="next-up" aria-labelledby="share-feedback-heading">
+      <div class="next-up-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5.5 4.5h13A2.5 2.5 0 0 1 21 7v8a2.5 2.5 0 0 1-2.5 2.5h-8l-5 3v-3H5.5A2.5 2.5 0 0 1 3 15V7a2.5 2.5 0 0 1 2.5-2.5Z" stroke="#090909" stroke-width="1.5" stroke-linejoin="round"/>
+          <circle cx="8" cy="11" r="1" fill="#b09b00"/>
+          <circle cx="12" cy="11" r="1" fill="#b09b00"/>
+          <circle cx="16" cy="11" r="1" fill="#b09b00"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="next-up-title" id="share-feedback-heading">Share Feedback</h2>
+        <p class="next-up-lead" contenteditable="true" spellcheck="false">WE VALUE YOUR FEEDBACK</p>
+        <p contenteditable="true" spellcheck="false">Please feel free to forward it to your team members if they are an active user of Finance Hub.</p>
+      </div>
+      <div class="next-up-feedback">
+        <div class="button-action-group">
+          <div class="action-button-shell">
+            <a class="action-button" href="#" title="Feedback link not set yet">
+              <span class="action-button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5.5 4.5h13A2.5 2.5 0 0 1 21 7v8a2.5 2.5 0 0 1-2.5 2.5h-8l-5 3v-3H5.5A2.5 2.5 0 0 1 3 15V7a2.5 2.5 0 0 1 2.5-2.5Z" stroke="#090909" stroke-width="1.5" stroke-linejoin="round"/>
+                  <circle cx="8" cy="11" r="1" fill="#b09b00"/>
+                  <circle cx="12" cy="11" r="1" fill="#b09b00"/>
+                  <circle cx="16" cy="11" r="1" fill="#b09b00"/>
+                </svg>
+              </span>
+              <span class="action-button-label" contenteditable="true" spellcheck="false">Share Feedback</span>
+            </a>
+            <details class="button-link-editor">
+              <summary aria-label="Edit feedback button destination" title="Edit feedback link">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 6.5 17.5 10.5M4 20l4.2-.9L19 8.3a2.1 2.1 0 0 0-3-3L5.2 16.1 4 20Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="visually-hidden">Edit feedback link</span>
+              </summary>
+              <form class="button-link-editor-form" data-link-editor novalidate>
+                <label class="button-link-editor-field" for="feedback-button-url">Feedback destination URL
+                  <input class="button-link-editor-input" id="feedback-button-url" name="destination" type="url" placeholder="https://..." required>
+                </label>
+                <button class="button-link-editor-save" type="submit">Save link</button>
+                <p class="button-link-editor-status" aria-live="polite"></p>
+              </form>
+            </details>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer class="footer">
-      <strong>We value your feedback</strong>
-      <p contenteditable="true" spellcheck="false">What should we improve or celebrate next? <a href="#">Share your feedback</a> · <a href="#">View the dashboard</a></p>
-      <p class="footer-brand">Better insights. Smarter decisions. Stronger impact.</p>
+      <div class="footer-icon" aria-hidden="true">
+        <svg viewBox="0 0 130 86" fill="none">
+          <path d="M91 8l3 10M105 17l-8 7M113 31l-11 1" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+          <path d="M40 28C58 24 75 17 88 7v55C75 52 58 45 40 43V28Z" fill="#f7f7f4" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M88 7c12 9 17 19 17 29S100 57 88 62V7Z" fill="#f5df00" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+          <ellipse cx="88" cy="34" rx="8" ry="19" fill="#fff8a8" stroke="#111" stroke-width="4"/>
+          <path d="M40 28L19 34c-5 2-7 8-5 13l5 10c2 5 8 7 13 5l8-4V28Z" fill="#111" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M27 58l-4 15h15l8-21-19 6Z" fill="#111" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M38 73h17" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+          <path d="M42 27v15" stroke="#fff" stroke-width="2.5" opacity=".8"/>
+        </svg>
+      </div>
+      <div class="footer-content">
+        <div>
+          <strong contenteditable="true" spellcheck="false">Better insights, smarter decisions, stronger impact</strong>
+          <p contenteditable="true" spellcheck="false">Let’s keep the momentum going</p>
+        </div>
+      </div>
     </footer>
   </main>
+  <script>
+    document.querySelectorAll(".button-link-editor").forEach((editor) => {
+      editor.addEventListener("toggle", () => {
+        if (!editor.open) return;
+        const panel = editor.querySelector(".button-link-editor-form");
+        const editorBounds = editor.getBoundingClientRect();
+        const panelBounds = panel.getBoundingClientRect();
+        const left = Math.max(12, Math.min(editorBounds.left, window.innerWidth - panelBounds.width - 12));
+        const below = editorBounds.bottom + 9;
+        const top = below + panelBounds.height <= window.innerHeight - 12
+          ? below
+          : Math.max(12, editorBounds.top - panelBounds.height - 8);
+
+        panel.style.left = `${left - editorBounds.left}px`;
+        panel.style.top = `${top - editorBounds.top}px`;
+      });
+    });
+
+    document.querySelectorAll("[data-link-editor]").forEach((form) => {
+      const editor = form.closest(".button-link-editor");
+      const button = form.closest(".button-action-group").querySelector(".action-button");
+
+      button.addEventListener("click", (event) => {
+        if (event.target.closest('[contenteditable="true"]') || button.getAttribute("href") !== "#") return;
+        event.preventDefault();
+        editor.open = true;
+        form.elements.namedItem("destination").focus();
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const input = form.elements.namedItem("destination");
+        const status = form.querySelector(".button-link-editor-status");
+        let destination;
+        input.removeAttribute("aria-invalid");
+
+        try {
+          destination = new URL(input.value.trim());
+        } catch {
+          status.textContent = "Enter a valid full URL starting with https:// or http://.";
+          input.setAttribute("aria-invalid", "true");
+          return;
+        }
+
+        if (destination.protocol !== "https:" && destination.protocol !== "http:") {
+          status.textContent = "Use a link starting with https:// or http://.";
+          input.setAttribute("aria-invalid", "true");
+          return;
+        }
+
+        button.href = destination.href;
+        button.title = "Open the saved link";
+        input.removeAttribute("aria-invalid");
+        status.textContent = "Link saved for this preview. It will not persist after reloading the page.";
+      });
+
+      form.elements.namedItem("destination").addEventListener("input", (event) => {
+        event.currentTarget.removeAttribute("aria-invalid");
+        form.querySelector(".button-link-editor-status").textContent = "";
+      });
+    });
+
+    const imageInput = document.querySelector("#dashboard-image-file");
+    const dashboardImage = document.querySelector(".win-dashboard-preview");
+    const imageStatus = document.querySelector(".image-editor-status");
+    let previewImageUrl = null;
+
+    imageInput.addEventListener("change", () => {
+      const file = imageInput.files[0];
+      if (!file) return;
+      if (file.type && !file.type.startsWith("image/")) {
+        imageStatus.textContent = "Choose a valid image file.";
+        imageInput.value = "";
+        return;
+      }
+
+      if (previewImageUrl) URL.revokeObjectURL(previewImageUrl);
+      previewImageUrl = URL.createObjectURL(file);
+      dashboardImage.src = previewImageUrl;
+      dashboardImage.alt = `User-selected dashboard image: ${file.name}`;
+      imageStatus.textContent = `Previewing ${file.name}. This change will not persist after reloading the page.`;
+    });
+  </script>
 </body>
 </html>
