@@ -2,7 +2,7 @@
 
 A dedicated VS Code workspace for producing the monthly Finance Hub newsletter with the **Finance Newsletter Updates** custom agent. Users provide business facts and adoption totals in conversation; the agent clarifies gaps, prepares concise copy, calculates chart values and creates an HTML draft for review. Each revision is retained, and final copy requires explicit approval.
 
-The audience includes finance executives, global and zonal directors, tower leads, their organizations, developers and operations leads. The newsletter emphasizes business impact, collaboration, releases, future priorities and adoption momentum.
+The audience includes finance executives, global and zonal directors, tower leads, their organizations, developers and operations leads. The newsletter emphasizes business impact, collaboration, releases, future priorities and adoption metrics.
 
 **Current scope:** a conversational authoring workflow and browser preview, not a deployed backend, frontend application or automatic email sender. Actual Outlook rendering remains unverified. Read [ABOUT.md](ABOUT.md) for the purpose, responsibilities and delivery boundary.
 
@@ -18,8 +18,12 @@ Finance Newsletter/
 			finance-newsletter-updates.agent.md
 	ui-assets/
 		UI.md
-		ab-inbev-symbol-gold.png
-		command-center-logo-yellow-white-2line.png
+		ab-inbev-symbol-header.png
+		ab-inbev-wordmark-header.png
+		command-center-new-logo.png
+		control-atr-dashboard.png
+		finance-hub-new.png
+		finance-laptop-powerbi-v2.png
 	mockups/
 		newsletter.html
 	outputs/
