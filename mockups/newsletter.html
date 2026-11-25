@@ -302,7 +302,6 @@
     }
     .update-heading-icon svg,
     .next-up-icon svg { width: 20px; height: 20px; }
-    .footer-icon svg { width: 18px; height: 18px; }
     .update-col ul { margin: 0; padding: 0; list-style: none; }
     .update-col li { position: relative; margin-bottom: 10px; padding-left: 17px; color: #5d6064; font-size: 13px; line-height: 1.5; }
     .update-col li:last-child { margin-bottom: 0; }
@@ -448,13 +447,12 @@
     }
     .footer:hover { transform: none; }
     .footer-icon {
-      width: 138px;
-      height: 88px;
-      display: grid;
-      place-items: center;
+      width: 130px;
+      height: 86px;
+      display: block;
+      object-fit: contain;
       filter: drop-shadow(4px 5px 0 rgba(39, 33, 0, .12));
     }
-    .footer-icon svg { width: 130px; height: 86px; }
     .footer-content {
       display: block;
       min-width: 0;
@@ -533,8 +531,7 @@
         grid-template-columns: 92px 1fr;
         padding: 14px 14px 14px 10px;
       }
-      .footer-icon { width: 88px; height: 84px; }
-      .footer-icon svg { width: 84px; height: 78px; }
+      .footer-icon { width: 84px; height: 78px; }
       .footer strong { font-size: 16px; line-height: 1.12; white-space: normal; }
       .footer p { font-size: 14px; }
     }
@@ -775,18 +772,7 @@
     </section>
 
     <footer class="footer">
-      <div class="footer-icon" aria-hidden="true">
-        <svg viewBox="0 0 130 86" fill="none">
-          <path d="M91 8l3 10M105 17l-8 7M113 31l-11 1" stroke="#111" stroke-width="5" stroke-linecap="round"/>
-          <path d="M40 28C58 24 75 17 88 7v55C75 52 58 45 40 43V28Z" fill="#f7f7f4" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
-          <path d="M88 7c12 9 17 19 17 29S100 57 88 62V7Z" fill="#f5df00" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
-          <ellipse cx="88" cy="34" rx="8" ry="19" fill="#fff8a8" stroke="#111" stroke-width="4"/>
-          <path d="M40 28L19 34c-5 2-7 8-5 13l5 10c2 5 8 7 13 5l8-4V28Z" fill="#111" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M27 58l-4 15h15l8-21-19 6Z" fill="#111" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M38 73h17" stroke="#111" stroke-width="5" stroke-linecap="round"/>
-          <path d="M42 27v15" stroke="#fff" stroke-width="2.5" opacity=".8"/>
-        </svg>
-      </div>
+      <img class="footer-icon" src="../ui-assets/footer-megaphone.svg" alt="" aria-hidden="true">
       <div class="footer-content">
         <div>
           <strong contenteditable="true" spellcheck="false">Better insights, smarter decisions, stronger impact</strong>
